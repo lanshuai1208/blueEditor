@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "vue-eslint-parser",
+  "extends": [
+    "eslint:recommended", // eslint推荐规则
+    "plugin:vue/recommended", // vue 检查规则推荐
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ], // 扩展使用
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "parser": "@typescript-eslint/parser",
+    "extraFileExtensions": [".vue"],
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".vue", ".json", ".js"]
+      },
+      "typescript": {
+        "extensions": [".ts", ".vue", ".json", ".js"]
+      }
+    }
+  },
+  "plugins": ["import", "vue", "@typescript-eslint"],
+  "rules": {
+    // "vue/singleline-html-element-content-newline": "off", // 单行html元素内容在新的一行
+    // "vue/multiline-html-element-content-newline": "off", // 多行html元素内容在新的一行
+    // "vue/html-closing-bracket-newline": "off", // html右括号在新的一行
+
+    "class-methods-use-this": "off", // 允许类方法中可以不使用this
+
+    // 支持导入 ts、tsx文件时忽略后缀名
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    // 允许 require
+    "@typescript-eslint/no-var-requires": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.vue"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}
