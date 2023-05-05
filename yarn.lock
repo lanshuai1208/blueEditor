@@ -1776,6 +1776,11 @@
   optionalDependencies:
     prettier "^1.18.2 || ^2.0.0"
 
+"@vue/composition-api@^1.7.1":
+  version "1.7.1"
+  resolved "http://r.npm.sankuai.com/@vue/composition-api/download/@vue/composition-api-1.7.1.tgz#aa6831be5a12817d93e89e247460c310dd7a3a32"
+  integrity sha1-qmgxvloSgX2T6J4kdGDDEN16OjI=
+
 "@vue/eslint-config-typescript@^9.1.0":
   version "9.1.0"
   resolved "https://registry.npmmirror.com/@vue/eslint-config-typescript/-/eslint-config-typescript-9.1.0.tgz#b98a64352b312085444a08b98728962e2a8425ab"
