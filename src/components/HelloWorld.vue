@@ -3,32 +3,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "@vue/composition-api";
-import { testImportTs } from "@/core/index";
+import { defineComponent, onMounted, ref } from "@vue/composition-api";
+import { createEditor } from "@/core/index";
+import { Editor } from "@/core/editor";
 
 export default defineComponent({
   setup() {
+    const config = {
+      selector: ".hello",
+    };
+    const editor = ref<Editor | null>(null);
     onMounted(() => {
-      testImportTs();
+      editor.value = createEditor({
+        selector: ".hello",
+      });
     });
+    return {
+      config,
+      editor,
+    };
   },
 });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.hello {
+  width: 400px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.84);
 }
 </style>
