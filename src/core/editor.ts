@@ -1,5 +1,6 @@
 import { IEditorConfig } from "./types";
 import { EventEmitter } from "./utils/bus";
+import { debounce } from "./utils/debounce";
 export class Editor {
   private config: Partial<IEditorConfig>;
 
@@ -15,10 +16,13 @@ export class Editor {
     this.container.innerHTML = config.value || "";
     this.emitter = new EventEmitter();
 
-    this.container.addEventListener("input", () => {
-      const htmlStr = this.container.innerHTML;
-      this.handleInput(htmlStr);
-    });
+    this.container.addEventListener(
+      "input",
+      debounce(() => {
+        const htmlStr = this.container.innerHTML;
+        this.handleInput(htmlStr);
+      }, config.inputDebounceDelay || 500),
+    );
   }
 
   public getContainer(selector?: string) {

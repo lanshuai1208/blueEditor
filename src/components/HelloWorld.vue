@@ -23,6 +23,7 @@ export default defineComponent({
       editor.value = createEditor({
         selector: ".hello",
         value: value.value,
+        inputDebounceDelay: 500,
         onInput: handleInput,
       });
     });
