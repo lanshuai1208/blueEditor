@@ -1,6 +1,14 @@
 import { IEditorConfig } from "./types";
 import { EventEmitter } from "./utils/bus";
 import { debounce } from "./utils/debounce";
+
+const defaultConfig: Partial<IEditorConfig> = {
+  selector: "",
+  value: "",
+  inputDebounceDelay: 500,
+  onInput: () => {},
+};
+
 export class Editor {
   private config: Partial<IEditorConfig>;
 
@@ -9,11 +17,12 @@ export class Editor {
   private container: Element;
 
   constructor(config: Partial<IEditorConfig>) {
-    this.config = config;
-    this.container = this.getContainer(config.selector);
+    this.config = Object.assign(defaultConfig, config);
+
+    this.container = this.getContainer(this.config.selector);
     this.container.classList.add("blue-editor-container");
     this.container.setAttribute("contenteditable", "true");
-    this.container.innerHTML = config.value || "";
+    this.container.innerHTML = this.config.value || "";
     this.emitter = new EventEmitter();
 
     this.container.addEventListener(
@@ -21,7 +30,7 @@ export class Editor {
       debounce(() => {
         const htmlStr = this.container.innerHTML;
         this.handleInput(htmlStr);
-      }, config.inputDebounceDelay || 500),
+      }, this.config.inputDebounceDelay),
     );
   }
 
