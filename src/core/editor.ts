@@ -8,8 +8,8 @@ export class Editor {
     this.config = config;
     this.container = this.getContainer(config.selector);
     this.container.classList.add("blue-editor-container");
-    console.log(this.container);
     this.container.setAttribute("contenteditable", "true");
+    this.container.innerHTML = `<span class="text">文本内容</span>`;
   }
 
   public getContainer(selector: string) {
