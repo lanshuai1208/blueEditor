@@ -7737,6 +7737,11 @@ prelude-ls@^1.2.1:
   resolved "http://r.npm.sankuai.com/prettier/download/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha1-6MXX6YpDBf/j3i4fxKyhpxwosdo=
 
+prettier@^3.0.0:
+  version "3.0.0"
+  resolved "http://r.npm.sankuai.com/prettier/download/prettier-3.0.0.tgz#e7b19f691245a21d618c68bc54dc06122f6105ae"
+  integrity sha1-57GfaRJFoh1hjGi8VNwGEi9hBa4=
+
 pretty-error@^4.0.0:
   version "4.0.0"
   resolved "http://r.npm.sankuai.com/pretty-error/download/pretty-error-4.0.0.tgz#90a703f46dd7234adb46d0f84823e9d1cb8f10d6"
