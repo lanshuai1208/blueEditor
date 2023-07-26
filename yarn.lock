@@ -3349,6 +3349,21 @@ char-regex@^1.0.2:
   resolved "http://r.npm.sankuai.com/char-regex/download/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
   integrity sha1-10Q1giYhf5ge1Y9Hmx1rzClUXc8=
 
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.3.0, chokidar@^3.4.1, chokidar@^3.5.3:
+  version "3.5.3"
+  resolved "http://r.npm.sankuai.com/chokidar/download/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
+  integrity sha1-HPN8hwe5Mr0a8a4iwEMuKs0ZA70=
+  dependencies:
+    anymatch "~3.1.2"
+    braces "~3.0.2"
+    glob-parent "~5.1.2"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.6.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "http://r.npm.sankuai.com/chokidar/download/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -3367,21 +3382,6 @@ chokidar@^2.1.8:
     upath "^1.1.1"
   optionalDependencies:
     fsevents "^1.2.7"
-
-chokidar@^3.3.0, chokidar@^3.4.1, chokidar@^3.5.3:
-  version "3.5.3"
-  resolved "http://r.npm.sankuai.com/chokidar/download/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
-  integrity sha1-HPN8hwe5Mr0a8a4iwEMuKs0ZA70=
-  dependencies:
-    anymatch "~3.1.2"
-    braces "~3.0.2"
-    glob-parent "~5.1.2"
-    is-binary-path "~2.1.0"
-    is-glob "~4.0.1"
-    normalize-path "~3.0.0"
-    readdirp "~3.6.0"
-  optionalDependencies:
-    fsevents "~2.3.2"
 
 chownr@^1.1.1:
   version "1.1.4"
@@ -5486,6 +5486,11 @@ ignore@^5.2.0:
   version "5.2.4"
   resolved "http://r.npm.sankuai.com/ignore/download/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
   integrity sha1-opHAxheP8blgvv5H/N7DAWdKYyQ=
+
+immutable@^4.0.0:
+  version "4.3.1"
+  resolved "http://r.npm.sankuai.com/immutable/download/immutable-4.3.1.tgz#17988b356097ab0719e2f741d56f3ec6c317f9dc"
+  integrity sha1-F5iLNWCXqwcZ4vdB1W8+xsMX+dw=
 
 import-fresh@^3.0.0, import-fresh@^3.1.0, import-fresh@^3.2.1:
   version "3.3.0"
@@ -8243,6 +8248,22 @@ safe-regex@^1.1.0:
   resolved "http://r.npm.sankuai.com/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
+sass-loader@^13.3.2:
+  version "13.3.2"
+  resolved "http://r.npm.sankuai.com/sass-loader/download/sass-loader-13.3.2.tgz#460022de27aec772480f03de17f5ba88fa7e18c6"
+  integrity sha1-RgAi3ieux3JIDwPeF/W6iPp+GMY=
+  dependencies:
+    neo-async "^2.6.2"
+
+sass@^1.64.1:
+  version "1.64.1"
+  resolved "http://r.npm.sankuai.com/sass/download/sass-1.64.1.tgz#6a46f6d68e0fa5ad90aa59ce025673ddaa8441cf"
+  integrity sha1-akb21o4Ppa2QqlnOAlZz3aqEQc8=
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
+
 schema-utils@2.7.0:
   version "2.7.0"
   resolved "http://r.npm.sankuai.com/schema-utils/download/schema-utils-2.7.0.tgz#17151f76d8eae67fbbf77960c33c676ad9f4efc7"
@@ -8534,7 +8555,7 @@ source-list-map@^2.0.0:
   resolved "http://r.npm.sankuai.com/source-list-map/download/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha1-OZO9hzv8SEecyp6jpUeDXHwVSzQ=
 
-source-map-js@^1.0.2:
+"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
   resolved "http://r.npm.sankuai.com/source-map-js/download/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha1-rbw2HZxi3zgBJefxYfccgm8eSQw=
