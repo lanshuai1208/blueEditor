@@ -1,3 +1,4 @@
+import { widthSelection } from "./plugins/with-selection";
 import { IEditorConfig } from "./types";
 import { Editor } from "@/core/editor";
 
@@ -22,5 +23,5 @@ function getContainer(selector: string) {
 export function createEditor(config: Partial<IEditorConfig>) {
   const editor = new Editor(config);
 
-  return editor;
+  return widthSelection(editor);
 }

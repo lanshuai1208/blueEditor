@@ -10,11 +10,11 @@ const defaultConfig: Partial<IEditorConfig> = {
 };
 
 export class Editor {
-  private config: Partial<IEditorConfig>;
+  config: Partial<IEditorConfig>;
 
   private emitter: EventEmitter;
 
-  private container: Element;
+  container: Element;
 
   constructor(config: Partial<IEditorConfig>) {
     this.config = Object.assign(defaultConfig, config);
