@@ -1,7 +1,7 @@
-import { eventEmitter } from "../utils/bus";
+import { EventEmitter } from "../utils/bus";
 const consoleSpy = jest.spyOn(console, "log");
 
-const instance = new eventEmitter();
+const instance = new EventEmitter();
 const sayHello = (args: string) => {
   console.log(`hello ${args}`);
 };

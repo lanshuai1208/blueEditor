@@ -19,7 +19,7 @@ function getContainer(selector: string) {
   return container[0];
 }
 
-export function createEditor(config: IEditorConfig) {
+export function createEditor(config: Partial<IEditorConfig>) {
   const editor = new Editor(config);
 
   return editor;

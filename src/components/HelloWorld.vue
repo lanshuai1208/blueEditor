@@ -13,9 +13,17 @@ export default defineComponent({
       selector: ".hello",
     };
     const editor = ref<Editor | null>(null);
+
+    const value = ref("nihao");
+
+    function handleInput(val: string) {
+      console.log(val);
+    }
     onMounted(() => {
       editor.value = createEditor({
         selector: ".hello",
+        value: value.value,
+        onInput: handleInput,
       });
     });
     return {

@@ -4,7 +4,7 @@ interface IHub {
   [eventName: string]: handlerType[];
 }
 
-export class eventEmitter {
+export class EventEmitter {
   private hub: IHub = {};
 
   constructor() {
@@ -39,6 +39,4 @@ export class eventEmitter {
       handler.call(null, args);
     });
   }
-
-  clear() {}
 }
