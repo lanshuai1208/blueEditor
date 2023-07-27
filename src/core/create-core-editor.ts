@@ -31,6 +31,7 @@ export function createCoreEditor(config: Partial<IEditorConfig>): IEditor {
   editor.selector = cfg.selector;
   editor.container = getContainer(cfg.selector);
   editor.container.setAttribute("contenteditable", "true");
+  editor.container.classList.add('blue-editor-container')
   editor.container.innerHTML = cfg.value || "";
 
   return editor;
