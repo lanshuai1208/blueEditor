@@ -21,12 +21,19 @@ export interface IEditor {
   // 输入反馈防抖延迟
   inputDebounceDelay: number;
   // 发布器
-  emittier: EventEmitter;
+  emittier?: EventEmitter;
   // 容器DOM
   container?: Element;
 
   // emitter
   on: (eventName: string, handler: (...args: any[]) => any) => void;
   off: (eventName: string, handler: (...args: any[]) => any) => void;
-  emit: (eventName: string, args: any) => void;
+  emit: (eventName: string, ...args: any[]) => void;
+
+  // hooks
+  onInput: (value: string) => any;
+  onCreate: (...args: any[]) => any;
+  onDestroy: (...args: any[]) => any;
 }
+
+export type lifeCycleType = "created" | "beforeDestory" | "update";
