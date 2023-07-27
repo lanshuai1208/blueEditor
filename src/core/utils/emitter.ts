@@ -11,14 +11,14 @@ export class EventEmitter {
     this.hub = {};
   }
 
-  addListener(eventName: string, event: handlerType) {
+  on(eventName: string, event: handlerType) {
     if (!this.hub[eventName]) {
       this.hub[eventName] = [];
     }
     this.hub[eventName].push(event);
   }
 
-  removeListener(eventName: string, event: handlerType) {
+  off(eventName: string, event: handlerType) {
     if (!this.hub[eventName]) {
       return false;
     }

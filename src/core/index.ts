@@ -1,27 +1,12 @@
-import { widthSelection } from "./plugins/with-selection";
-import { IEditorConfig } from "./types";
-import { Editor } from "@/core/editor";
+// import { widthSelection } from "./plugins/with-selection";
+// import { withLifeCycle } from "./plugins/with-lifecycle";
+// import { IEditorConfig } from "./types/types";
+// import { Editor } from "@/core/editor";
 
-function getContainer(selector: string) {
-  if (!selector) {
-    throw new Error("please input query selector of the container");
-  }
+// export function createEditor(config: Partial<IEditorConfig>) {
+//   const editor = new Editor(config);
 
-  const container = document.querySelectorAll(selector);
+//   return withLifeCycle(widthSelection(editor));
+// }
 
-  if (!container.length) {
-    throw new Error("query selector did not match element");
-  }
-
-  if (container.length > 1) {
-    throw new Error("query selector matched multiple elements");
-  }
-
-  return container[0];
-}
-
-export function createEditor(config: Partial<IEditorConfig>) {
-  const editor = new Editor(config);
-
-  return widthSelection(editor);
-}
+export * from "./create-editor";

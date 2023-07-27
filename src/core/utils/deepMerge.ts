@@ -1,10 +1,10 @@
-import { IObject } from "../types";
+import { IObject } from "../types/types";
 
 export function deepMerge(fromObj: IObject, toObj: IObject) {
   const res: object = {};
 
   return Array.from(
-    new Set([...Object.keys(fromObj), ...Object.keys(toObj)])
+    new Set([...Object.keys(fromObj), ...Object.keys(toObj)]),
   ).reduce((prev, key) => {
     const fromHasKey = key in fromObj;
     const toHasKey = key in toObj;

@@ -1,4 +1,4 @@
-import { EventEmitter } from "../utils/bus";
+import { EventEmitter } from "../utils/emitter";
 const consoleSpy = jest.spyOn(console, "log");
 
 const instance = new EventEmitter();
@@ -12,8 +12,8 @@ const sayHello2 = (args: string) => {
 
 describe("测试事件监听", () => {
   it('测试绑定事件并调用"', () => {
-    instance.addListener("hello", sayHello);
-    instance.addListener("hello", sayHello2);
+    instance.on("hello", sayHello);
+    instance.on("hello", sayHello2);
     instance.emit("hello", "zhangsan");
 
     expect(consoleSpy).toHaveBeenCalledWith("hello zhangsan");
@@ -21,8 +21,8 @@ describe("测试事件监听", () => {
   });
 
   it('测试删除事件"', () => {
-    const noExist = instance.removeListener("hello1", sayHello);
-    const exist = instance.removeListener("hello", sayHello);
+    const noExist = instance.off("hello1", sayHello);
+    const exist = instance.off("hello", sayHello);
 
     expect(noExist).toEqual(false);
     expect(exist).toEqual(true);

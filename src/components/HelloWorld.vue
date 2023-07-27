@@ -1,23 +1,27 @@
 <template>
-  <div class="hello"></div>
+  <div>
+    <div class="hello"></div>
+    {{ value }}
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "@vue/composition-api";
-import { createEditor } from "@/core/index";
-import { Editor } from "@/core/editor";
+// import { createEditor } from "@/core/index";
+import { createEditor } from "@/core";
+import { IEditor } from "@/core/types/types";
 
 export default defineComponent({
   setup() {
     const config = {
       selector: ".hello",
     };
-    const editor = ref<Editor | null>(null);
+    const editor = ref<IEditor | null>(null);
 
     const value = ref("nihao");
 
     function handleInput(val: string) {
-      console.log(val);
+      value.value = val;
     }
     onMounted(() => {
       editor.value = createEditor({
@@ -28,6 +32,7 @@ export default defineComponent({
       });
     });
     return {
+      value,
       config,
       editor,
     };
