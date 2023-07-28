@@ -2,9 +2,10 @@ import { EventEmitter } from "./../utils/emitter";
 export interface IEditorConfig {
   selector: string;
   value: string;
-  onInput: (value: string) => any;
-  onCreate: (...args: any[]) => any;
-  onDestroy: (...args: any[]) => any;
+  onUpdate: (value: string) => any;
+  onCreated: (editor: IEditor) => any;
+  onMounted: (editor: IEditor) => any;
+  onDestroy: (editor: IEditor) => any;
   inputDebounceDelay: number;
 }
 
@@ -31,9 +32,11 @@ export interface IEditor {
   emit: (eventName: string, ...args: any[]) => void;
 
   // hooks
-  onInput: (value: string) => any;
-  onCreate: (...args: any[]) => any;
+  onCreated: (...args: any[]) => any;
+  onMounted: (...args: any[]) => any;
+  onUpdate: (value: string) => any;
   onDestroy: (...args: any[]) => any;
+  destroy: (editor: IEditor) => void;
 }
 
 export type lifeCycleType = "created" | "beforeDestory" | "update";

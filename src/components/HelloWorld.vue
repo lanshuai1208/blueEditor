@@ -28,7 +28,10 @@ export default defineComponent({
         selector: ".hello",
         value: value.value,
         inputDebounceDelay: 500,
-        onInput: handleInput,
+        onUpdate: handleInput,
+        onCreated: () => {
+          console.log("haha");
+        },
       });
     });
     return {

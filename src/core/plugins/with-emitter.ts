@@ -11,7 +11,7 @@ export const withEmitter = <T extends IEditor>(editor: T) => {
     editor.emittier?.off(eventName, handler);
   };
   editor.emit = (eventName: string, ...args: any[]) => {
-    editor.emittier?.emit(eventName, args);
+    editor.emittier?.emit(eventName, ...args);
   };
   return editor;
 };

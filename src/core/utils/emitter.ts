@@ -30,13 +30,13 @@ export class EventEmitter {
     return true;
   }
 
-  emit(eventName: string, args: unknown) {
+  emit(eventName: string, ...args: any[]) {
     if (!this.hub[eventName]) {
       return false;
     }
 
     this.hub[eventName].forEach((handler) => {
-      handler.call(null, args);
+      handler.call(null, ...args);
     });
   }
 }
