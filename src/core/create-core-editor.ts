@@ -1,6 +1,7 @@
 import { withLifeCycle } from "./plugins/with-lifecycle";
 import { withEmitter } from "./plugins/with-emitter";
 import { IEditorConfig, IEditor } from "./types/types";
+import { withExeCommand } from "./plugins/with-exe-command";
 
 const defaultConfig: IEditorConfig = {
   selector: "",
@@ -46,7 +47,7 @@ export function createCoreEditor(config: Partial<IEditorConfig>) {
     destroy: () => {},
   });
 
-  let editor: IEditor = withLifeCycle(withEmitter(defaultEditor));
+  let editor: IEditor = withExeCommand(withLifeCycle(withEmitter(defaultEditor)));
 
   editor.emit("created");
 
@@ -56,6 +57,7 @@ export function createCoreEditor(config: Partial<IEditorConfig>) {
   }
   editor.selector = cfg.selector;
   editor.container = getContainer(cfg.selector);
+
   editor.container.setAttribute("contenteditable", "true");
   editor.container.classList.add("blue-editor-container");
   editor.container.innerHTML = cfg.value || "";
