@@ -1,4 +1,4 @@
-import { IEditor } from "../types/types";
+import { IEditor } from "../types/editor";
 import { debounce } from "../utils/debounce";
 
 export const withDataBind = <T extends IEditor>(editor: T) => {

@@ -1,4 +1,4 @@
-import { IEditor } from "../types/types";
+import { IEditor } from "../types/editor";
 
 // 选区功能
 export const withLifeCycle = <T extends IEditor>(editor: T) => {

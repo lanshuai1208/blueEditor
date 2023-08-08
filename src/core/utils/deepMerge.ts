@@ -1,4 +1,4 @@
-import { IObject } from "../types/types";
+import { IObject } from "../types/editor";
 
 export function deepMerge(fromObj: IObject, toObj: IObject) {
   const res: object = {};

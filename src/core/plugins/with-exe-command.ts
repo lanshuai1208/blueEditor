@@ -1,4 +1,4 @@
-import {  IEditor } from "../types/types";
+import {  IEditor } from "../types/editor";
 
 
 // 选区功能
@@ -21,7 +21,7 @@ export const withExeCommand =<T extends IEditor>(editor: T) => {
 //     }
 //   });
 
-  
+
 
   return editor;
 };

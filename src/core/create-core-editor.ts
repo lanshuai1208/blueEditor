@@ -1,6 +1,6 @@
 import { withLifeCycle } from "./plugins/with-lifecycle";
 import { withEmitter } from "./plugins/with-emitter";
-import { IEditorConfig, IEditor } from "./types/types";
+import { IEditorConfig, IEditor } from "./types/editor";
 import { withExeCommand } from "./plugins/with-exe-command";
 
 const defaultConfig: IEditorConfig = {

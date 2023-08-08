@@ -1,4 +1,4 @@
-import { EventEmitter } from "./../utils/emitter";
+import { EventEmitter } from "../utils/emitter";
 export interface IEditorConfig {
   selector: string;
   value: string;

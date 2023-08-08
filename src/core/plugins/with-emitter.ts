@@ -1,4 +1,4 @@
-import { IEditor } from "../types/types";
+import { IEditor } from "../types/editor";
 import { EventEmitter } from "../utils/emitter";
 
 // 添加事件触发
