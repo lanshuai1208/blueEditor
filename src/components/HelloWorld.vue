@@ -9,7 +9,7 @@
 import { defineComponent, onMounted, ref } from "@vue/composition-api";
 // import { createEditor } from "@/core/index";
 import { createEditor } from "@/core";
-import { IEditor } from "@/core/types/types";
+import { IEditor } from "@/core/types/editor";
 
 export default defineComponent({
   setup() {

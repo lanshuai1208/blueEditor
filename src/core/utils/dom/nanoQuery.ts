@@ -1,15 +1,18 @@
-
-
-
-export function nanoQuery(selector: string) {
-
-    return new nanoQuery.fn.init(selector)
+interface INanoQuery {
+  init: (selector: string) => INanoQuery;
 }
 
-nanoQuery.fn = nanoQuery.prototype = {
-    init(selector: string) {
-
-    }
+function nanoQuery(selector: string): INanoQuery {
+  return new nanoQuery.prototype.init(selector);
 }
+
+nanoQuery.prototype = {
+  init(selector: string) {
+    this.dom = document.querySelector(selector);
+    return this;
+  },
+};
 
 // $(".test")[0].css('')
+
+export default nanoQuery;
