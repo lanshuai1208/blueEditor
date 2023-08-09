@@ -10,3 +10,4 @@
 // }
 
 export * from "./create-editor";
+export * from "./toolbar/create-toolbar";

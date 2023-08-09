@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="hello"></div>
+    <div class="toolbar"></div>
+    <div class="editor"></div>
     {{ value }}
   </div>
 </template>
@@ -8,14 +9,16 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "@vue/composition-api";
 // import { createEditor } from "@/core/index";
-import { createEditor } from "@/core";
+import { createEditor, createToolBar } from "@/core";
 import { IEditor } from "@/core/types/editor";
+import { IToolbar } from "@/core/types/toolbar";
 
 export default defineComponent({
   setup() {
     const config = {
       selector: ".hello",
     };
+    // const toolbar = ref<IToolbar | null>(null);
     const editor = ref<IEditor | null>(null);
 
     const value = ref("nihao");
@@ -25,7 +28,7 @@ export default defineComponent({
     }
     onMounted(() => {
       editor.value = createEditor({
-        selector: ".hello",
+        selector: ".editor",
         value: value.value,
         inputDebounceDelay: 500,
         onUpdate: handleInput,
@@ -33,6 +36,10 @@ export default defineComponent({
           console.log("haha");
         },
       });
+      // toolbar.value = createToolBar({
+      //   selector: ".toolbar",
+      //   editor: editor.value,
+      // });
     });
     return {
       value,

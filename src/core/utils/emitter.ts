@@ -5,7 +5,7 @@ interface IHub {
 }
 
 export class EventEmitter {
-  private hub: IHub = {};
+  hub: IHub = {};
 
   constructor() {
     this.hub = {};

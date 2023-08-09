@@ -1,3 +1,4 @@
+import { Italic } from "./btns/italic";
 import { IToolbar, IToolbarConfig } from "../types/toolbar";
 // import "./utils/dom";
 
@@ -10,8 +11,10 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
 
   const toolbar: IToolbar = {
     container: document.querySelector(cfg.selector || "") || undefined,
-    btns: {},
+    btns: [],
   };
+
+  toolbar.btns.push(new Italic({ parentDom: toolbar.container }));
 
   return toolbar;
 }
