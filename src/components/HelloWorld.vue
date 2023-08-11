@@ -8,30 +8,32 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "@vue/composition-api";
-// import { createEditor } from "@/core/index";
 import { createEditor, createToolBar } from "@/core";
 import { IEditor } from "@/core/types/editor";
 import { IToolbar } from "@/core/types/toolbar";
 
 export default defineComponent({
   setup() {
+    function handleInput(val: string) {
+      value.value = val;
+    }
     const config = {
       selector: ".hello",
     };
-    // const toolbar = ref<IToolbar | null>(null);
+    const toolbar = ref<IToolbar | null>(null);
+
     const editor = ref<IEditor | null>(null);
 
     const value = ref("nihao");
 
-    function handleInput(val: string) {
-      value.value = val;
-    }
     onMounted(() => {
       editor.value = createEditor({
         selector: ".editor",
         value: value.value,
         inputDebounceDelay: 500,
-        onUpdate: handleInput,
+        onUpdate: (val) => {
+          value.value = val;
+        },
         onCreated: () => {
           console.log("haha");
         },
@@ -41,10 +43,11 @@ export default defineComponent({
       //   editor: editor.value,
       // });
     });
+
     return {
-      value,
-      config,
-      editor,
+      // value,
+      // config,
+      // editor
     };
   },
 });
