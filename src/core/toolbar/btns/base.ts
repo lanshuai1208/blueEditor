@@ -9,9 +9,15 @@ export abstract class BaseBtn {
   dom?: Element;
   editor?: Partial<IEditor>;
   config: IConfig;
+  editorRange?: Range;
   constructor(config: IConfig) {
     this.config = config;
     this.editor = config.editor;
+    const editorContainer = this.editor?.container;
+    if (editorContainer) {
+      this.editorRange = document.createRange();
+      this.editorRange.selectNode(editorContainer);
+    }
   }
 
   abstract render(): void;
@@ -27,11 +33,46 @@ export abstract class BaseBtn {
     return true;
   }
 
+  // 判断Range 对象是否在DOM容器内
+  checkRangeInEditor(range: Range) {
+    const container = this.editor?.container;
+    if (!container) {
+      return false;
+    }
+    if (!this.editorRange) {
+      return false;
+    }
+
+    console.log(
+      range.compareBoundaryPoints(Range.START_TO_START, this.editorRange),
+    );
+    console.log(
+      range.compareBoundaryPoints(Range.END_TO_END, this.editorRange),
+    );
+
+    return (
+      range.compareBoundaryPoints(Range.START_TO_START, this.editorRange) >=
+        0 &&
+      range.compareBoundaryPoints(Range.END_TO_END, this.editorRange) <= 0
+    );
+  }
+
   // 获取选中区域
   getSelectedRange() {
     // const selection = window.getSelection();
     // console.log(selection, selection?.getRangeAt(0));
     // return selection?.getRangeAt(0);
-    return window.getSelection()?.getRangeAt(0);
+    const selection = window.getSelection();
+    if (!selection) {
+      return;
+    }
+    const range = selection?.getRangeAt(0);
+    if (!range) {
+      return;
+    }
+    if (!this.checkRangeInEditor(range)) {
+      return;
+    }
+    return range;
   }
 }
