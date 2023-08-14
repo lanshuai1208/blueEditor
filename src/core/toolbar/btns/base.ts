@@ -43,13 +43,6 @@ export abstract class BaseBtn {
       return false;
     }
 
-    console.log(
-      range.compareBoundaryPoints(Range.START_TO_START, this.editorRange),
-    );
-    console.log(
-      range.compareBoundaryPoints(Range.END_TO_END, this.editorRange),
-    );
-
     return (
       range.compareBoundaryPoints(Range.START_TO_START, this.editorRange) >=
         0 &&
@@ -59,9 +52,6 @@ export abstract class BaseBtn {
 
   // 获取选中区域
   getSelectedRange() {
-    // const selection = window.getSelection();
-    // console.log(selection, selection?.getRangeAt(0));
-    // return selection?.getRangeAt(0);
     const selection = window.getSelection();
     if (!selection) {
       return;
