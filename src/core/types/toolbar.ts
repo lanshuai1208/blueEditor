@@ -1,4 +1,4 @@
-import { IBaseBtn } from "../toolbar/btns/italic";
+import { BaseBtn } from "../toolbar/btns/base";
 import { IEditor } from "./editor";
 
 export interface IToolbarConfig {
@@ -8,5 +8,6 @@ export interface IToolbarConfig {
 
 export interface IToolbar {
   container?: Element;
-  btns: IBaseBtn[];
+  btns: BaseBtn[];
+  destroy: () => void;
 }

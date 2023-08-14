@@ -1,5 +1,8 @@
-.blue-toolbar-container {
+@import './common.scss';
 
+
+.blue-toolbar-container {
+    border-color: $borderGray;
 }
 
 

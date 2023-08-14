@@ -7,7 +7,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "@vue/composition-api";
+import {
+  defineComponent,
+  onMounted,
+  ref,
+  onBeforeUnmount,
+} from "@vue/composition-api";
 import { createEditor, createToolBar } from "@/core";
 import { IEditor } from "@/core/types/editor";
 import { IToolbar } from "@/core/types/toolbar";
@@ -31,23 +36,25 @@ export default defineComponent({
         selector: ".editor",
         value: value.value,
         inputDebounceDelay: 500,
-        onUpdate: (val) => {
-          value.value = val;
-        },
+        onUpdate: handleInput,
         onCreated: () => {
           console.log("haha");
         },
       });
-      // toolbar.value = createToolBar({
-      //   selector: ".toolbar",
-      //   editor: editor.value,
-      // });
+      toolbar.value = createToolBar({
+        selector: ".toolbar",
+        editor: editor.value,
+      });
+    });
+
+    onBeforeUnmount(() => {
+      toolbar.value?.destroy();
     });
 
     return {
-      // value,
-      // config,
-      // editor
+      value,
+      config,
+      editor,
     };
   },
 });

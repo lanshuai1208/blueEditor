@@ -1,6 +1,11 @@
+@import './common.scss';
+
 .blue-editor-container {
     padding: 12px;
     text-align: left;
+    border: 1px solid $borderGray;
+    min-height: 300px;
+    outline: none;
     .text{
         color: red
     }
