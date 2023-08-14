@@ -1,12 +1,12 @@
-import { IEditor } from "./../../types/editor";
-import { BaseBtn } from "./base";
+import { IEditor } from "./../../../types/editor";
+import { BaseBtn } from "../base";
 
 interface IConfig {
   parentDom?: Element;
   editor?: Partial<IEditor>;
 }
 
-export class UnderLine extends BaseBtn {
+export class Color extends BaseBtn {
   constructor(config: IConfig) {
     super(config);
     this.render();
@@ -14,7 +14,7 @@ export class UnderLine extends BaseBtn {
 
   render() {
     this.dom = document.createElement("button"); // 获取文档中的一个 HTMLDivElement 元素，并将其赋值给 this.state.trigger
-    this.dom.innerHTML = `下划线`;
+    this.dom.innerHTML = `颜色`;
     if (!this.config.parentDom) {
       throw new Error("toolbox's container dom is not exist");
     }
@@ -29,7 +29,7 @@ export class UnderLine extends BaseBtn {
     }
     // 创建一个 span 元素，并设置样式为斜体
     const italicSpan = document.createElement("span");
-    italicSpan.style.textDecoration = "underline";
+    italicSpan.style.fontWeight = "700";
     // 将选中区域的内容包含在 span 标签中，并设置样式
     italicSpan.appendChild(selectedRange.extractContents());
     selectedRange.insertNode(italicSpan);

@@ -1,5 +1,5 @@
-import { IEditor } from "./../../types/editor";
-import { BaseBtn } from "./base";
+import { IEditor } from "../../../types/editor";
+import { BaseBtn } from "../base";
 
 interface IConfig {
   parentDom?: Element;

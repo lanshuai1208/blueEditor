@@ -29,6 +29,9 @@ export abstract class BaseBtn {
 
   // 获取选中区域
   getSelectedRange() {
+    // const selection = window.getSelection();
+    // console.log(selection, selection?.getRangeAt(0));
+    // return selection?.getRangeAt(0);
     return window.getSelection()?.getRangeAt(0);
   }
 }

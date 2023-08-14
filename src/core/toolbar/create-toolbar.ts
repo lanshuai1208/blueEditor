@@ -1,10 +1,11 @@
-import { FontBold } from "./btns/font-bold";
-import { UnderLine } from "./btns/underline";
-import { Italic } from "./btns/italic";
+import { FontBold } from "./btns/font/font-bold";
+import { UnderLine } from "./btns/font/underline";
+import { Italic } from "./btns/font/italic";
 import { IToolbar, IToolbarConfig } from "../types/toolbar";
-import { LineThrough } from "./btns/line-through";
+import { LineThrough } from "./btns/font/line-through";
 import { SuperScript } from "./btns/super-script";
 import { SubScript } from "./btns/sub-script";
+import { Color } from "./btns/color/color";
 
 const defaultCfg: IToolbarConfig = {
   selector: "",
@@ -31,6 +32,7 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
     new LineThrough({ parentDom: toolbar.container, editor: cfg.editor }),
     new SuperScript({ parentDom: toolbar.container, editor: cfg.editor }),
     new SubScript({ parentDom: toolbar.container, editor: cfg.editor }),
+    new Color({ parentDom: toolbar.container, editor: cfg.editor }),
   );
 
   return toolbar;
