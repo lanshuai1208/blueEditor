@@ -1,3 +1,4 @@
+import { ColorPicker } from "./color-picker";
 import { IEditor } from "./../../../types/editor";
 import { BaseBtn } from "../base";
 
@@ -7,19 +8,32 @@ interface IConfig {
 }
 
 export class Color extends BaseBtn {
+  colorPicker: ColorPicker;
   constructor(config: IConfig) {
     super(config);
     this.render();
+    this.colorPicker = new ColorPicker({
+      container: this.dom,
+    });
   }
 
   render() {
     this.dom = document.createElement("button"); // 获取文档中的一个 HTMLDivElement 元素，并将其赋值给 this.state.trigger
+    this.dom.classList.add("color-btn");
     this.dom.innerHTML = `颜色`;
     if (!this.config.parentDom) {
       throw new Error("toolbox's container dom is not exist");
     }
     this.config.parentDom?.appendChild(this.dom);
-    this.dom?.addEventListener("click", this.exec.bind(this));
+    this.dom?.addEventListener("click", this.showPicker.bind(this));
+  }
+
+  showPicker() {
+    this.colorPicker.show();
+  }
+
+  hidePicker() {
+    this.colorPicker.hide();
   }
 
   exec() {
@@ -38,6 +52,6 @@ export class Color extends BaseBtn {
   }
 
   destroy() {
-    this.dom?.removeEventListener("click", this.exec.bind(this));
+    this.dom?.removeEventListener("click", this.showPicker.bind(this));
   }
 }
