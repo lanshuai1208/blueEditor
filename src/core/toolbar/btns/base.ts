@@ -1,13 +1,5 @@
 import { IEditor } from "@/core/types/editor";
 
-// export interface IBaseBtn {
-//   dom?: Element;
-//   //   init: () => boolean;
-//   render: () => void;
-//   exec: () => boolean;
-//   destroy: () => void;
-// }
-
 interface IConfig {
   parentDom?: Element;
   editor?: Partial<IEditor>;
