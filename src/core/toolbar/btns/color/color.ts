@@ -53,5 +53,6 @@ export class Color extends BaseBtn {
 
   destroy() {
     this.dom?.removeEventListener("click", this.showPicker.bind(this));
+    this.colorPicker.destroy();
   }
 }

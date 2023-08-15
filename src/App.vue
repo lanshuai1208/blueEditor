@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <button @click="triggerShowHello">trigger demo</button>
     <HelloWorld
       v-if="showHello"
       msg="Welcome to Your Vue.js + TypeScript App"
@@ -18,6 +19,10 @@ import HelloWorld from "./components/HelloWorld.vue";
 })
 export default class App extends Vue {
   showHello = true;
+
+  triggerShowHello() {
+    this.showHello = !this.showHello;
+  }
 }
 </script>
 
