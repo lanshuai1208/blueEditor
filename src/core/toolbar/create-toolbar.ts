@@ -6,6 +6,7 @@ import { LineThrough } from "./btns/font/line-through";
 import { SuperScript } from "./btns/super-script";
 import { SubScript } from "./btns/sub-script";
 import { Color } from "./btns/color/color";
+import { BackgroundColor } from "./btns/color/background-color";
 
 const defaultCfg: IToolbarConfig = {
   selector: "",
@@ -33,6 +34,7 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
     new SuperScript({ parentDom: toolbar.container, editor: cfg.editor }),
     new SubScript({ parentDom: toolbar.container, editor: cfg.editor }),
     new Color({ parentDom: toolbar.container, editor: cfg.editor }),
+    new BackgroundColor({ parentDom: toolbar.container, editor: cfg.editor }),
   );
 
   return toolbar;

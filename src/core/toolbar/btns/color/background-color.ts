@@ -7,7 +7,7 @@ interface IConfig {
   editor?: Partial<IEditor>;
 }
 
-export class Color extends BaseBtn {
+export class BackgroundColor extends BaseBtn {
   colorPicker: ColorPicker;
   constructor(config: IConfig) {
     super(config);
@@ -23,9 +23,9 @@ export class Color extends BaseBtn {
   }
 
   render() {
-    this.dom = document.createElement("button"); // 获取文档中的一个 HTMLDivElement 元素，并将其赋值给 this.state.trigger
+    this.dom = document.createElement("button");
     this.dom.classList.add("color-btn");
-    this.dom.innerHTML = `文本色`;
+    this.dom.innerHTML = `背景色`;
     if (!this.config.parentDom) {
       throw new Error("toolbox's container dom is not exist");
     }
@@ -44,14 +44,14 @@ export class Color extends BaseBtn {
     }
 
     const span = document.createElement("span");
-    span.style.color = color;
+    span.style.backgroundColor = color;
 
-    // 删除包裹部分内的color属性，否则优先级比最外层包裹的高
+    // 删除包裹部分内的background-color属性，否则优先级比最外层包裹的高
     const innerFragment = selectedRange.extractContents();
     const elements = innerFragment.querySelectorAll("*");
     elements.forEach((elem) => {
       if (elem instanceof HTMLElement) {
-        elem.style.removeProperty("color");
+        elem.style.removeProperty("background-color");
       }
     });
 
