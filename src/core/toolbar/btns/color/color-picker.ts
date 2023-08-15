@@ -1,21 +1,30 @@
 export class ColorPicker {
   container?: Element;
-  visible: boolean = true;
   constructor(cfg: { container?: Element }) {
     this.container = cfg.container;
     this.render();
   }
 
   show() {
-    this.visible = true;
-    // window.addEventListener('click', )
+    this.container?.classList.add('show')
+
+    // this.container && (this.container.style.display = 'block')
+    window.addEventListener('click', this.closePicker.bind(this))
+  }
+
+  closePicker() {
+    this.hide()
   }
 
   hide() {
-    this.visible = false;
+    this.container?.classList.remove('show')
+    // this.container && (this.container.style.display = 'none')
+    window.removeEventListener('click', this.closePicker.bind(this))
   }
 
+
   render() {
+
     const pickerContainer = document.createElement("div");
     pickerContainer.classList.add("color-picker");
     console.log(this.container, pickerContainer);

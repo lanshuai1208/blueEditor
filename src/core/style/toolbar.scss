@@ -3,16 +3,23 @@
 
 .blue-toolbar-container {
     border-color: $borderGray;
-    .color-picker{
+
+    .color-picker {
         position: absolute;
         width: 100px;
         height: 100px;
         border: 1px solid #f5f5f5;
         background-color: #fff;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+
     }
-    .color-btn{
+
+    .color-btn {
         position: relative;
     }
 }
-
-
