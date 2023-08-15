@@ -39,7 +39,6 @@ export class ColorPicker {
   }
 
   hide() {
-    // FIXME: 调试，之后打开
     this.pickerContainer?.classList.remove("show");
   }
 

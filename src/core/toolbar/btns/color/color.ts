@@ -19,7 +19,6 @@ export class Color extends BaseBtn {
   }
 
   handleColorPick(color: string) {
-    console.log(color);
     this.exec(color);
   }
 
@@ -39,17 +38,25 @@ export class Color extends BaseBtn {
   }
 
   exec(color: string) {
-    console.log("color", color);
     const selectedRange = this.getSelectedRange();
     if (!selectedRange) {
       return false;
     }
-    // 创建一个 span 元素，并设置样式为斜体
-    const italicSpan = document.createElement("span");
-    italicSpan.style.color = color;
-    // 将选中区域的内容包含在 span 标签中，并设置样式
-    italicSpan.appendChild(selectedRange.extractContents());
-    selectedRange.insertNode(italicSpan);
+
+    const span = document.createElement("span");
+    span.style.color = color;
+
+    // 删除包裹部分内的color属性，否则优先级比最外层包裹的高
+    const innerFragment = selectedRange.extractContents();
+    const elements = innerFragment.querySelectorAll("*");
+    elements.forEach((elem) => {
+      if (elem instanceof HTMLElement) {
+        elem.style.removeProperty("color");
+      }
+    });
+
+    span.appendChild(innerFragment);
+    selectedRange.insertNode(span);
     this.emitUpdate();
     return true;
   }
