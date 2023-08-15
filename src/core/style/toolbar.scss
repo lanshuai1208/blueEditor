@@ -6,14 +6,25 @@
 
     .color-picker {
         position: absolute;
-        width: 100px;
-        height: 100px;
+        width: 160px;
+        height: 60px;
         border: 1px solid #f5f5f5;
         background-color: #fff;
         display: none;
+        flex-wrap: wrap;
+        align-items: flex-start;
 
         &.show {
-            display: block;
+            display: flex;
+        }
+        &-item{
+            width: 20px;
+            height: 20px;
+            margin: 2px;
+            border: 1px solid #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+
         }
 
 

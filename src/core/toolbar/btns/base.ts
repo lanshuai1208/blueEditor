@@ -22,7 +22,7 @@ export abstract class BaseBtn {
 
   abstract render(): void;
 
-  abstract exec(): boolean;
+  abstract exec(...args: any[]): boolean;
 
   abstract destroy(): void;
 
