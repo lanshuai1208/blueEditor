@@ -29,7 +29,9 @@ export default defineComponent({
 
     const editor = ref<IEditor | null>(null);
 
-    const value = ref("nihao");
+    const value = ref(
+      `nihao<div class="blue-tag"><span class="blue-tag-inner">标签</span><span></span></div>`,
+    );
 
     onMounted(() => {
       editor.value = createEditor({

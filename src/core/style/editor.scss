@@ -25,4 +25,19 @@
       }
     }
   }
+  .blue-tag {
+    // margin: 0 4px;
+    padding: 4px 6px;
+    display: inline-flex;
+    font-size: 12px;
+    min-width: 80px;
+    min-height: 20px;
+    background-color: #ecf5ff;
+    border: 1px solid #409eff;
+    color: #409eff;
+    border-radius: 4px;
+    align-items: center;
+    &-inner {
+    }
+  }
 }
