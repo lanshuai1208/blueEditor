@@ -7,6 +7,7 @@ import { SuperScript } from "./btns/super-script";
 import { SubScript } from "./btns/sub-script";
 import { Color } from "./btns/color/color";
 import { BackgroundColor } from "./btns/color/background-color";
+import { Table } from "./btns/table/table";
 
 const defaultCfg: IToolbarConfig = {
   selector: "",
@@ -35,6 +36,7 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
     new SubScript({ parentDom: toolbar.container, editor: cfg.editor }),
     new Color({ parentDom: toolbar.container, editor: cfg.editor }),
     new BackgroundColor({ parentDom: toolbar.container, editor: cfg.editor }),
+    new Table({ parentDom: toolbar.container, editor: cfg.editor }),
   );
 
   return toolbar;
