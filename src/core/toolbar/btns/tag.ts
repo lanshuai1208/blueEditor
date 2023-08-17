@@ -32,7 +32,9 @@ export class Tag extends BaseBtn {
 
     const tagInner = document.createElement("span");
     tagInner.classList.add("blue-tag-inner");
-    tagInner.innerText = "标签";
+    // 防止空标签的时候无法输入内容
+    const innerPreSpan = this.getZeroWidthSpanceSpan();
+    tagInner.appendChild(innerPreSpan);
 
     tag.appendChild(tagInner);
 
