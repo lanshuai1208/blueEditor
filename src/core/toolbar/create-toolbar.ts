@@ -1,3 +1,4 @@
+import { Code } from "./btns/code";
 import { FontBold } from "./btns/font/font-bold";
 import { UnderLine } from "./btns/font/underline";
 import { Italic } from "./btns/font/italic";
@@ -39,6 +40,7 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
     new BackgroundColor({ parentDom: toolbar.container, editor: cfg.editor }),
     new Table({ parentDom: toolbar.container, editor: cfg.editor }),
     new Tag({ parentDom: toolbar.container, editor: cfg.editor }),
+    new Code({ parentDom: toolbar.container, editor: cfg.editor }),
   );
 
   return toolbar;

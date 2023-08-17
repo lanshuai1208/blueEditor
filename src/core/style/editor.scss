@@ -45,4 +45,15 @@
     &-inner {
     }
   }
+  .blue-code {
+    background-color: rgb(232, 232, 232);
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 4px 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    text-indent: 0 &-line {
+      min-height: 17px;
+    }
+  }
 }
