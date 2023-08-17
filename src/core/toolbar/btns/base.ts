@@ -65,4 +65,11 @@ export abstract class BaseBtn {
     }
     return range;
   }
+
+  getZeroWidthSpanceSpan() {
+    const span = document.createElement("span");
+    // 保证
+    span.innerHTML = "&ZeroWidthSpace;";
+    return span;
+  }
 }

@@ -26,17 +26,22 @@
     }
   }
   .blue-tag {
-    // margin: 0 4px;
-    padding: 4px 6px;
-    display: inline-flex;
-    font-size: 12px;
+    padding: 2px 10px;
+    // display: inline-flex;
+    font-size: 14px;
     min-width: 80px;
     min-height: 20px;
-    background-color: #ecf5ff;
-    border: 1px solid #409eff;
-    color: #409eff;
+    background-color: #eee;
+    /* border: 1px solid #409eff; */
+    color: rgba(0, 0, 0, 0.84);
     border-radius: 4px;
-    align-items: center;
+    // align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    &:focus {
+      border: 1px solid rgb(180, 213, 255);
+    }
+
     &-inner {
     }
   }

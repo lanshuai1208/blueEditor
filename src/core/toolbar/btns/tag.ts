@@ -36,9 +36,10 @@ export class Tag extends BaseBtn {
 
     tag.appendChild(tagInner);
 
-    // italicSpan.style.fontStyle = "italic";
-    // 将选中区域的内容包含在 span 标签中，并设置样式
-    // italicSpan.appendChild(selectedRange.extractContents());
+    // 标签后面增加零宽空格，防止标签后面无非空内容DOM的时候无法获得焦点
+    const suffixSpan = this.getZeroWidthSpanceSpan();
+
+    selectedRange.insertNode(suffixSpan);
     selectedRange.insertNode(tag);
     this.emitUpdate();
     return true;
