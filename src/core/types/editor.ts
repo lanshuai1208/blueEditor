@@ -26,6 +26,12 @@ export interface IEditor {
   // 容器DOM
   container?: Element;
 
+  // undo redo
+  undoStack?: string[];
+  redoStack?: string[];
+  undo: () => boolean;
+  redo: () => boolean;
+
   // emitter
   on: (eventName: string, handler: (...args: any[]) => any) => void;
   off: (eventName: string, handler: (...args: any[]) => any) => void;
@@ -36,7 +42,9 @@ export interface IEditor {
   onMounted: (...args: any[]) => any;
   onUpdate: (value: string) => any;
   onDestroy: (...args: any[]) => any;
-  destroy: (editor: IEditor) => void;
+  destroy: () => void;
+  update: (htmlStr?: string, reset?: boolean) => boolean;
+  setValue: (value?: string) => boolean;
 }
 
 export type lifeCycleType = "created" | "beforeDestory" | "update";

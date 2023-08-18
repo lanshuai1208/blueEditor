@@ -2,6 +2,7 @@ import { withLifeCycle } from "./plugins/with-lifecycle";
 import { withEmitter } from "./plugins/with-emitter";
 import { IEditorConfig, IEditor } from "./types/editor";
 import { withExeCommand } from "./plugins/with-exe-command";
+import { withUndoRedo } from "./plugins/with-undo-redo";
 
 const defaultConfig: IEditorConfig = {
   selector: "",
@@ -18,14 +19,24 @@ const getDefaultEditor = (): IEditor => {
     selector: "",
     value: "",
     inputDebounceDelay: 500,
+    undoStack: [],
+    redoStack: [],
+
+    undo: () => false,
+    redo: () => false,
+
     on: () => {},
     off: () => {},
     emit: () => {},
+
     onCreated: () => {},
     onMounted: () => {},
     onUpdate: () => {},
     onDestroy: () => {},
+
     destroy: () => {},
+    update: () => false,
+    setValue: () => false,
   };
 };
 
@@ -40,6 +51,7 @@ export function createCoreEditor(config: Partial<IEditorConfig>) {
     on: () => {},
     off: () => {},
     emit: () => {},
+
     onCreated: cfg.onCreated,
     onMounted: cfg.onMounted,
     onUpdate: cfg.onUpdate,
@@ -47,7 +59,9 @@ export function createCoreEditor(config: Partial<IEditorConfig>) {
     destroy: () => {},
   });
 
-  let editor: IEditor = withExeCommand(withLifeCycle(withEmitter(defaultEditor)));
+  let editor: IEditor = withExeCommand(
+    withUndoRedo(withLifeCycle(withEmitter(defaultEditor))),
+  );
 
   editor.emit("created");
 

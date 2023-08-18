@@ -10,6 +10,7 @@ export class Italic extends BaseBtn {
   constructor(config: IConfig) {
     super(config);
     this.render();
+    this.dom?.addEventListener("click", this.exec.bind(this));
   }
 
   render() {
@@ -19,7 +20,6 @@ export class Italic extends BaseBtn {
       throw new Error("toolbox's container dom is not exist");
     }
     this.config.parentDom?.appendChild(this.dom);
-    this.dom?.addEventListener("click", this.exec.bind(this));
   }
 
   exec() {

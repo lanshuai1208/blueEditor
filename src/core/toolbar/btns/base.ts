@@ -28,8 +28,9 @@ export abstract class BaseBtn {
 
   emitUpdate() {
     this.editor &&
-      this.editor.emit &&
-      this.editor?.emit("update", this.editor.container?.innerHTML);
+      this.editor.update &&
+      this.editor.update(this.editor.container?.innerHTML);
+    // this.editor?.emit("update", this.editor.container?.innerHTML);
     return true;
   }
 

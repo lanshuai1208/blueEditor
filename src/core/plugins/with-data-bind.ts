@@ -7,19 +7,15 @@ export const withDataBind = <T extends IEditor>(editor: T) => {
     "input",
     debounce(() => {
       const htmlStr = editor.container?.innerHTML;
-      handleInput(htmlStr || "", editor.onUpdate);
-      editor.emit("update", htmlStr);
+      // handleInput(htmlStr || "", editor.onUpdate);
+      htmlStr && editor.update(htmlStr);
     }, editor.inputDebounceDelay),
   );
-
-  // editor.on("update", (val: string) => {
-  //   console.log("updated ", val);
-  // });
 
   return editor;
 };
 
-// 处理输入变化
-function handleInput(htmlStr: string, onUpdate?: (...args: any[]) => any) {
-  onUpdate && onUpdate.call(null, htmlStr);
-}
+// // 处理输入变化
+// function handleInput(htmlStr: string, onUpdate?: (...args: any[]) => any) {
+//   onUpdate && onUpdate.call(null, htmlStr);
+// }

@@ -49,6 +49,7 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       toolbar.value?.destroy();
+      editor.value?.destroy();
     });
 
     return {

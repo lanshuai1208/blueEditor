@@ -5,7 +5,7 @@ export const withLifeCycle = <T extends IEditor>(editor: T) => {
   editor.on("created", () => editor.onCreated(editor));
   editor.on("mounted", () => editor.onMounted(editor));
   editor.on("update", (val) => editor.onUpdate(val));
-  editor.on("destroy", () => editor.onDestroy(editor));
+  editor.on("destroy", () => editor.onDestroy());
 
   return editor;
 };

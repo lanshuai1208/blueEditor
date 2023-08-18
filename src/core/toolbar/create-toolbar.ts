@@ -10,17 +10,14 @@ import { Color } from "./btns/color/color";
 import { BackgroundColor } from "./btns/color/background-color";
 import { Table } from "./btns/table/table";
 import { Tag } from "./btns/tag";
-
-const defaultCfg: IToolbarConfig = {
-  selector: "",
-};
+import { UndoRedo } from "./btns/undo-redo";
 
 export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
   const container = document.querySelector(cfg.selector || "") || undefined;
-  container?.classList.add("blue-toolbar-container");
   if (!container) {
     throw new Error("can't find toolbar container");
   }
+  container?.classList.add("blue-toolbar-container");
 
   const toolbar: IToolbar = {
     container,
@@ -41,6 +38,7 @@ export function createToolBar(cfg: Partial<IToolbarConfig>): IToolbar {
     new Table({ parentDom: toolbar.container, editor: cfg.editor }),
     new Tag({ parentDom: toolbar.container, editor: cfg.editor }),
     new Code({ parentDom: toolbar.container, editor: cfg.editor }),
+    new UndoRedo({ parentDom: toolbar.container, editor: cfg.editor }),
   );
 
   return toolbar;

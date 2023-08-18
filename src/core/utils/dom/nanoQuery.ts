@@ -6,7 +6,7 @@ function nanoQuery(selector: string): INanoQuery {
   return new nanoQuery.prototype.init(selector);
 }
 
-nanoQuery.prototype = {
+nanoQuery.fn = nanoQuery.prototype = {
   init(selector: string) {
     this.dom = document.querySelector(selector);
     return this;
